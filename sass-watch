@@ -1,1 +1,1 @@
-sass --watch src/tiny-grid.scss:tiny-grid.css
+sass --watch src/tiny-grid.scss:tiny-grid.css --sourcemap=none
