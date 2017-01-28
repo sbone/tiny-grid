@@ -1,0 +1,163 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ - 12 column grid
+ - 3 breakpoints
+ */
+
+$column_count: 12;
+
+$grid_unit: 8px;
+$max_count: 20;
+
+$gutter_width: 2 * $grid_unit;
+
+
+$medium_breakpoint: 768px;
+$large_breakpoint: 1200px;
+$standard_container_width: 960px;
+
+$sides: 'top', 'right', 'bottom', 'left';
+
+$border_size: 4px;
+
+$border_color: #ff0000;
+
+/* r = row (column container) */
+.r {
+  @extend .clearfix;
+  margin: 0 auto;
+  &.rsw {
+    max-width: $standard_container_width;
+  }
+}
+
+/* c = column (content container) */
+.c {
+  padding: 0 $gutter_width;
+  float: left;
+  &.no-padding {
+    padding: 0;
+  }
+}
+
+// vertical  spacing
+@each $side in $sides {
+  @for $i from 1 through $max_count {
+    $unit: ($i * $grid_unit);
+    $size_letter: str-slice($side, 0, 1);
+    .m#{$size_letter + $i} {
+      margin-#{$side}: $unit;
+    }
+    .p#{$size_letter + $i} {
+      padding-#{$side}: $unit;
+    }
+  }
+}
+
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.tu {
+  text-transform: uppercase;
+}
+.t300 {
+  font-weight: 300;
+}
+.t700 {
+  font-weight: 700;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+.bc {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+// small center
+.sc {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+/* borders */
+@each $side in $sides {
+  .border-#{$side} {
+    border-#{$side}: $border_size solid $border_color;
+    @media only screen and (max-width: $medium_breakpoint) {
+      border-#{$side}: none;
+    }
+  }
+}
+.border {
+  border: $border_size solid $border_color;
+  @media only screen and (max-width: 480px) {
+    border: none;
+  }
+}
+
+/* columns */
+@for $i from 1 through $column_count {
+  .s#{$i} {
+    width: percentage($i/$column_count);
+  }
+  .so#{$i} {
+    margin-left: percentage($i/$column_count);
+  }
+}
+@media only screen and (min-width: $medium_breakpoint) {
+  @for $i from 1 through $column_count {
+    .m#{$i} {
+      width: percentage($i/$column_count);
+    }
+    .mo#{$i} {
+      margin-left: percentage($i/$column_count);
+    }
+  }
+}
+@media only screen and (min-width: $large_breakpoint) {
+  @for $i from 1 through $column_count {
+    .l#{$i} {
+      width: percentage($i/$column_count);
+    }
+    .lo#{$i} {
+      margin-left: percentage($i/$column_count);
+    }
+  }
+}
+
+@media only screen and (max-width: $medium_breakpoint) {
+  // hide-for-small
+  .hfs {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: $medium_breakpoint) {
+  .small-block {
+    display: block;
+  }
+}
