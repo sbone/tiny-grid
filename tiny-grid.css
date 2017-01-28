@@ -20,13 +20,32 @@
   .r.rsw {
     max-width: 960px; }
 
-/* c = column (content container) */
+/*
+  c = column (content container)
+*/
 .c {
   padding: 0 16px;
   float: left; }
   .c.no-padding {
     padding: 0; }
 
+/*
+  directional padding & margin
+  offers granular top, right, bottom, and left
+  directions, at multiples of $grid_unit
+
+  - example -
+
+  .mb3 =
+  .[m]argin[b]ottom([3] * 8px) {
+    margin-bottom: 24px;
+  }
+
+  .pt5 =
+  .[p]adding[t]op([5] * 8px) {
+    padding-top: 40px;
+  }
+*/
 .mt1 {
   margin-top: 8px; }
 
@@ -507,6 +526,9 @@
 .pl20 {
   padding-left: 160px; }
 
+/*
+  shortand basix text styling
+*/
 .tc {
   text-align: center; }
 
@@ -522,17 +544,26 @@
 .t700 {
   font-weight: 700; }
 
+/*
+  display options
+*/
 .ib {
   display: inline-block; }
 
 .block {
   display: block; }
 
+/*
+  block center
+*/
 .bc {
   display: block;
   margin-right: auto;
   margin-left: auto; }
 
+/*
+  small center
+*/
 .sc {
   margin-left: auto;
   margin-right: auto;
@@ -569,7 +600,26 @@
     .border {
       border: none; } }
 
-/* columns */
+/*
+  columns
+  set widths as needed, breakpoint-scoped
+  classes that are calcuated against $column_count
+  additional classes available for pushing
+  columns to the right
+
+  - example -
+
+  .s4 =
+  .[s]mall([4]/12) {
+    width: 33.333%
+  }
+
+  .mo3 =
+  .[m]edium[o]ffset([3]/12) {
+    margin-left: 25%
+  }
+
+*/
 .s1 {
   width: 8.33333%; }
 
@@ -786,6 +836,9 @@
 
   .lo12 {
     margin-left: 100%; } }
+/*
+  responsive utilities
+*/
 @media only screen and (max-width: 768px) {
   .hfs {
     display: none;

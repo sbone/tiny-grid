@@ -24,7 +24,6 @@ $max_count: 20;
 
 $gutter_width: 2 * $grid_unit;
 
-
 $medium_breakpoint: 768px;
 $large_breakpoint: 1200px;
 $standard_container_width: 960px;
@@ -44,7 +43,9 @@ $border_color: #ff0000;
   }
 }
 
-/* c = column (content container) */
+/*
+  c = column (content container)
+*/
 .c {
   padding: 0 $gutter_width;
   float: left;
@@ -53,7 +54,23 @@ $border_color: #ff0000;
   }
 }
 
-// vertical  spacing
+/*
+  directional padding & margin
+  offers granular top, right, bottom, and left
+  directions, at multiples of $grid_unit
+
+  - example -
+
+  .mb3 =
+  .[m]argin[b]ottom([3] * 8px) {
+    margin-bottom: 24px;
+  }
+
+  .pt5 =
+  .[p]adding[t]op([5] * 8px) {
+    padding-top: 40px;
+  }
+*/
 @each $side in $sides {
   @for $i from 1 through $max_count {
     $unit: ($i * $grid_unit);
@@ -67,6 +84,9 @@ $border_color: #ff0000;
   }
 }
 
+/*
+  shortand basix text styling
+*/
 .tc {
   text-align: center;
 }
@@ -83,19 +103,26 @@ $border_color: #ff0000;
   font-weight: 700;
 }
 
+/*
+  display options
+*/
 .ib {
   display: inline-block;
 }
-
 .block {
   display: block;
 }
+/*
+  block center
+*/
 .bc {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
-// small center
+/*
+  small center
+*/
 .sc {
   margin-left: auto;
   margin-right: auto;
@@ -118,7 +145,26 @@ $border_color: #ff0000;
   }
 }
 
-/* columns */
+/*
+  columns
+  set widths as needed, breakpoint-scoped
+  classes that are calcuated against $column_count
+  additional classes available for pushing
+  columns to the right
+
+  - example -
+
+  .s4 =
+  .[s]mall([4]/12) {
+    width: 33.333%
+  }
+
+  .mo3 =
+  .[m]edium[o]ffset([3]/12) {
+    margin-left: 25%
+  }
+
+*/
 @for $i from 1 through $column_count {
   .s#{$i} {
     width: percentage($i/$column_count);
@@ -148,6 +194,9 @@ $border_color: #ff0000;
   }
 }
 
+/*
+  responsive utilities
+*/
 @media only screen and (max-width: $medium_breakpoint) {
   // hide-for-small
   .hfs {
@@ -155,7 +204,6 @@ $border_color: #ff0000;
     visibility: hidden;
   }
 }
-
 @media only screen and (max-width: $medium_breakpoint) {
   .small-block {
     display: block;
