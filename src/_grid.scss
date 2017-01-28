@@ -203,8 +203,6 @@ $border_color: #ff0000;
     display: none;
     visibility: hidden;
   }
-}
-@media only screen and (max-width: $medium_breakpoint) {
   .small-block {
     display: block;
   }
