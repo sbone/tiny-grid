@@ -1,13 +1,13 @@
 *, *:before, *:after {
   box-sizing: border-box; }
 
-.clearfix:before, .r:before,
-.clearfix:after,
+.cf:before, .r:before,
+.cf:after,
 .r:after {
   content: " ";
   display: table; }
 
-.clearfix:after, .r:after {
+.cf:after, .r:after {
   clear: both; }
 
 /*

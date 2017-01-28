@@ -2,13 +2,13 @@
   box-sizing: border-box;
 }
 
-.clearfix:before,
-.clearfix:after {
+.cf:before,
+.cf:after {
   content: " ";
   display: table;
 }
 
-.clearfix:after {
+.cf:after {
   clear: both;
 }
 
@@ -36,7 +36,7 @@ $border_color: #ff0000;
 
 /* r = row (column container) */
 .r {
-  @extend .clearfix;
+  @extend .cf;
   margin: 0 auto;
   &.rsw {
     max-width: $standard_container_width;
